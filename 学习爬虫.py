@@ -53,3 +53,11 @@ divtext = getText('http://hnzj.edu.cn')
 # else:
 print(divtext)  #  输出
 #
+
+# 如爬取电影网
+url = "https://www.pianku.li/mv/"
+html = urlopen(url)
+title = BeautifulSoup(html.read())
+title_jie = title.findAll("div",{"class":{"tgr_adr"})  # 读取指定标签
+                                 
+                                 
