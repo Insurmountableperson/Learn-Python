@@ -42,11 +42,10 @@ def getText(url):  #  构建一个函数
         ruturn null
     try:
         respons = BeautifulSoup(html.read())  #  处理
-        gao = respons.body  #  输入body标签的内容
+        ObText = respons.body  #  输入body标签的内容
     except AttributeError as e:
         ruturn null
-    else:
-        return gao
+    return ObText
 
 divtext = getText('http://hnzj.edu.cn')
 # if title == None:
