@@ -117,7 +117,7 @@ while i <= 100:
 
 #  使用for循环或者while循环输出100以内的素数
 
- for循环
+#  for循环
 
 i = 2
 for i in range(2, 100):
@@ -158,9 +158,9 @@ for i in range(100):
 passwordbest > 3:"输入错误次数过多,请稍后再试"
 """
 
- true
-  user = gao
-  password = 123456
+#  true
+#  user = gao
+#  password = 123456
 
 
 def pd(u, p):
