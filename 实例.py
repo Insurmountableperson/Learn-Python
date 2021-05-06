@@ -272,3 +272,104 @@ while True:
     start_cd()
     user_input(input('请输入：'))
 
+#  好友通讯录
+
+def jiemian_1():
+    print(" ===============\n", '欢迎使用手机通讯录\n', '1.添加联系人\n', '2.查看通讯录\n', '3.删除联系人\n', '4.修改联系人\n', '5.查找联系人\n',
+          '6.退出\n', '===============\n')
+    return 0
+
+def user_main(user_inputed):
+    if user_inputed not in ['1', '2', '3', '4', '5', '6']:
+        print('请输入正确的选项！')
+    elif user_inputed == '1':  # 添加联系人
+        add = {}
+        user_add_name = input('请输入联系人的名字：')
+        user_add_phone = input('请输入联系人电话：')
+        user_add_mail = input('请输入联系人邮箱：')
+        user_add_addr = input('请输入联系人的地址：')
+        if user_add_name == '' or user_add_phone == '' or user_add_mail == '' or user_add_addr == '':  # 判断输入是否为空
+            print('请输入正确信息！')
+        else:
+            # add.update(姓名=user_add_name,test="test's text")
+            add.update(姓名=user_add_name, 电话=user_add_phone, 邮箱=user_add_mail, 地址=user_add_addr)
+            user_moreList.append(add)
+            user_nameList.append(user_add_name)
+
+    elif user_inputed == '2':  # 查看通讯录
+        # print(user_nameList, user_moreList, '\n')
+        if len(user_nameList) == 0:
+            print('\n通讯录无信息！\n')
+        else:
+            sw2 = {}
+            for i in range(len(user_nameList)):
+                print(user_nameList[i],'----------')
+                sw2 = user_moreList[i]
+                for i2 in sw2.items():
+                    print(i2,)
+
+    elif user_inputed == '3':  # 删除联系人
+        user_del_input = input('请输入要删除的联系人姓名：')
+        if user_del_input == '':
+            print('你的输入为空！')
+        else:
+            if user_del_input not in user_nameList or len(user_nameList) == 0:
+                print('该联系人不在通讯录中或通讯录为空')
+            for i in range(len(user_nameList)):
+                if user_del_input == user_nameList[i]:
+                    user_nameList.remove(user_nameList[i])
+                    user_moreList.remove(user_moreList[i])
+                    print('删除成功')
+                    break
+
+    elif user_inputed == '4':  # 修改联系人
+        sw = {}
+        if len(user_nameList) == 0:
+            print('通讯录无信息')
+        else:
+            user_oldname_input = input('请输入要修改的姓名：')
+            if user_oldname_input not in user_nameList or user_oldname_input == '':
+                print('通讯录无当前联系人或你内容为空！')
+            else:
+                user_new_input = input('请输入新的姓名：')
+                user_new_phone = input('请输入新手机号：')
+                user_new_mail = input('请输入新邮箱：')
+                user_new_addr = input('请输入新地址：')
+                if user_new_input == '' or user_new_phone == '' or user_new_mail == '' or user_new_addr == '':
+                    print('请不要输入空内容！')
+                else:
+                    for i in range(len(user_nameList)):
+                        if user_oldname_input not in user_nameList:
+                            print('当前通讯录无该联系人')
+                            break
+                        if user_oldname_input == user_nameList[i]:
+                            user_nameList[i] = user_new_input
+                            sw = user_moreList[i]
+                            sw.update(姓名=user_new_input, 电话=user_new_phone, 邮箱=user_new_mail, 地址=user_new_addr)
+                            user_moreList[i] = sw
+                            print('添加成功')
+                            break
+
+    elif user_inputed == '5': #  查找联系人
+        user_find_name = input('请输入要查找的联系人姓名：')
+        if len(user_nameList) == 0:
+            print('该通讯录无信息')
+        else:
+            if user_find_name not in user_nameList:
+                print('该联系人不在通讯录中')
+            else:
+                for i in range(len(user_nameList)):
+                    if user_nameList[i] == user_find_name:
+                        print(user_nameList[i], user_moreList[i])
+
+    elif user_inputed == '6':
+        exit()
+    return 0
+
+user_nameList = []
+user_moreList = []
+
+while True:
+    jiemian_1()
+    user_input = input('请输入功能序号：')
+    user_main(user_input)
