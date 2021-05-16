@@ -373,3 +373,118 @@ while True:
     jiemian_1()
     user_input = input('请输入功能序号：')
     user_main(user_input)
+      
+      
+      
+      
+      
+#  F(1)=1, F(2)=1, F(n)=F(n-1)+F(n-2) (n>=3,n∈N*)
+
+# def shulie_process(user_num_input):
+#     if int(user_num_input) == 1 or int(user_num_input) == 2:
+#         return 1
+#     else:
+#         i = int(user_num_input)
+#         return shulie_process(i - 1) + shulie_process((i - 2))
+#
+#
+# user_num_Input = input('请输入一个数：')
+#
+# # print(user_num_Input.isdigit())
+# if user_num_Input.isdigit() is False or user_num_Input == '':
+#     print('请输入数字！')
+# else:
+#     result = shulie_process(user_num_Input)
+#     print(result)
+
+
+#  计算器
+
+# def counter(user_numinput):
+#     listone = []
+#     listone = user_numinput
+#     listtwo_sw = []
+#     n1 = ''
+#     n2 = ''
+#     # for i1 in user_numinput:
+#     #     print(i1)
+#     #
+#     for i1 in listone:  #  首先收集符号前的数
+#         if i1 == '+' or i1 == '-' or i1 == '*' or i1 == '/':
+#             listtwo_sw.append(i1)
+#             break
+#         else:
+#             n1 += i1
+#     # print(type(i2))
+#     print(listtwo_sw)
+#
+#     #  开始收集符号后的数
+#     for i2 in listone[::-1]:
+#         if i2 == '+' or i2 == '-' or i2 == '*' or i2 == '/':
+#             break
+#         else:
+#             n2 += i2
+#     n2 = n2[::-1]
+#     # print(n1, n2)
+#     n1 = int(n1)
+#     n2 = int(n2)
+#     if listtwo_sw[0] == '+':
+#         s = n1 + n2
+#     elif listtwo_sw[0] == '-':
+#         s = n1 - n2
+#     elif listtwo_sw[0] == '*':
+#         s = n1 * n2
+#     elif listtwo_sw[0] == '/':
+#         s = n1 / n2
+#
+#     return s
+#
+# while True:
+#     print('-------')
+#     user_numInput = input('请输入算式：')
+#     s_s = counter(user_numInput)
+#     print(s_s)
+#
+
+
+
+#  学生信息管理系统
+
+def jm():
+    print('-'*10,'\n', '学生管理系统\n','-'*10,'\n','1.查找信息\n','2.修改信息\n','3.添加信息\n','4.删除信息\n')
+    return 0 
+
+def process_info(user_num):
+    if user_num == '1':
+        for name in student_name:
+            print(name)
+    elif user_num == '2':
+        user_change_name = input('请输入要修改的学生姓名：')
+        user_changed_name = input('请输入新姓名：')
+        if user_change_name in student_name:
+            student_name[student_name.index(user_change_name)] = user_changed_name
+        else:
+            print('该学生不在列表内！')
+    elif user_num == '3':
+        user_add_name = input('请输入添加的学生姓名：')
+        if user_add_name in student_name:
+            print('该生信息已经存在！')
+        else:
+            student_name.append(user_add_name)
+            print('添加成功')
+    elif user_num == '4':
+        user_del_name = input('请输入要删除的学生姓名：')
+        if user_del_name in student_name:
+            student_name.remove(user_del_name)
+        else:
+            print('该生不存在')
+
+
+student_name = []
+
+while True:
+    jm()
+    user_input = input('请输入选项:')
+    process_info(user_input)
+
+
